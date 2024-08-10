@@ -3,36 +3,40 @@ include '../config.php';
 
 $sql = "SELECT * FROM member";
 $result = $conn->query($sql);
+$title = "Member";
 ?>
 
-<h2>Members List</h2>
-<a href="create.php">Create New Member</a>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Nama</th>
-        <th>Alamat</th>
-        <th>Jenis Kelamin</th>
-        <th>Telepon</th>
-        <th>Actions</th>
-    </tr>
-    <?php
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>
-                <td>" . $row['id'] . "</td>
-                <td>" . $row['nama'] . "</td>
-                <td>" . $row['alamat'] . "</td>
-                <td>" . $row['jenis_kelamin'] . "</td>
-                <td>" . $row['tlp'] . "</td>
-                <td>
-                    <a href='edit.php?id=" . $row['id'] . "'>Edit</a>
-                    <a href='delete.php?id=" . $row['id'] . "'>Delete</a>
-                </td>
-            </tr>";
-        }
-    } else {
-        echo "<tr><td colspan='6'>No members found</td></tr>";
-    }
-    ?>
-</table>
+<!doctype html>
+<html lang="en">
+
+<?php include __DIR__ . ("/../include/head.php") ?>
+
+<body x-data="" x-bind="$store.global.documentBody" class="is-sidebar-open is-header-blur navigation:sideblock">
+    <!-- App preloader-->
+    <div class="app-preloader fixed z-50 grid h-full w-full place-content-center bg-slate-50 dark:bg-navy-900">
+        <div class="app-preloader-inner relative inline-block size-48"></div>
+    </div>
+
+    <!-- Page Wrapper -->
+    <div id="root" class="min-h-100vh flex grow bg-slate-50 dark:bg-navy-900" x-cloak="">
+        <!-- Sidebar -->
+        <?php include __DIR__ . ("/../include/sidebar.php") ?>
+
+        <?php include __DIR__ . ("/../include/header.php") ?>
+
+        <!-- Main Content Wrapper -->
+        <main class="main-content w-full px-[var(--margin-x)] pb-8">
+            <div class="space-x-4 py-5 lg:py-6">
+                <h2 class="text-xl font-medium text-slate-800 dark:text-navy-50 lg:text-2xl">
+                    Welcome to Laundry Management System </h2>
+            </div>
+        </main>
+    </div>
+
+    <div id="x-teleport-target"></div>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => Alpine.start());
+    </script>
+</body>
+
+</html>
