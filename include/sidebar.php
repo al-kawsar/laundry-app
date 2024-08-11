@@ -3,7 +3,7 @@
         <div class="flex items-center justify-between px-3 pt-4">
             <!-- Application Logo -->
             <div class="flex">
-                <a href="index.htm.html">
+                <a href="/">
                     <img class="size-11 transition-transform duration-500 ease-in-out hover:rotate-[360deg]"
                         src="/images/app-logo.png" alt="logo">
                 </a>
