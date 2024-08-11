@@ -1,3 +1,8 @@
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+    header("Location: /");
+} ?>
 <!doctype html>
 <html lang="en">
 
@@ -55,7 +60,7 @@
                     <label class="block">
                         <span>Username:</span>
                         <span class="relative mt-1.5 flex">
-                            <input autocomplete="off"
+                            <input required autocomplete maxlength="255" max="255"
                                 class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
                                 placeholder="Enter Username" type="text" name="username"
                                 value="<?= $old_input ?? '' ?>">
@@ -73,7 +78,7 @@
                     <label class="mt-4 block">
                         <span>Password:</span>
                         <span class="relative mt-1.5 flex">
-                            <input autocomplete="off"
+                            <input required min="8" minlength="8" max="255" autocomplete="off"
                                 class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
                                 placeholder="Enter Password" type="password" name="password">
                             <span
@@ -145,7 +150,7 @@
                 const result = await response.json();
 
                 if (result.status === 'success') {
-                    window.location.href = 'index.php';
+                    window.location.href = '/';
                 } else {
                     alert(result.message)
                 }
