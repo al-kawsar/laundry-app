@@ -47,45 +47,12 @@ $title = "Member";
                 </ul>
             </div>
             <div class="grid grid-cols-1 gap-4 sm:gap-5 lg:gap-6">
-
-
-                <!-- Async Data -->
                 <div class="card pb-4">
-                    <div class="my-3 flex  items-center justify-between px-4 sm:px-5">
-                        <div x-data="usePopper({placement:'bottom-end',offset:4})"
-                            @click.outside="isShowPopper && (isShowPopper = false)" class="inline-flex">
-
-
-                            <div x-ref="popperRoot" class="popper-root" :class="isShowPopper && 'show'">
-                                <div
-                                    class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700">
-                                    <ul>
-                                        <li>
-                                            <a href="#"
-                                                class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100">Action</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100">Another
-                                                Action</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100">Something
-                                                else</a>
-                                        </li>
-                                    </ul>
-                                    <div class="my-1 h-px bg-slate-150 dark:bg-navy-500"></div>
-                                    <ul>
-                                        <li>
-                                            <a href="#"
-                                                class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100">Separated
-                                                Link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="my-3 flex  items-center justify-end px-4 sm:px-5">
+                        <button
+                            class="btn border border-info/30 bg-info/10 font-medium text-info  hover:bg-info/20 focus:bg-info/20 active:bg-info/25">
+                            <a href="./create.php">Add Member</a>
+                        </button>
                     </div>
                     <div>
                         <div x-init="$el.grid = new Gridjs.Grid({
