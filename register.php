@@ -1,7 +1,10 @@
 <?php
 session_start();
-include 'error_handler.php';
 include 'config.php';
+
+if (isset($_SESSION['username'])) {
+    header("Location: /");
+}
 
 $old_input = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -19,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO user (nama, username, password, role) VALUES ('$nama', '$username', '$password', 'admin')";
         if ($conn->query($sql) === TRUE) {
             $_SESSION['username'] = $username;
-            header("Location: index.php");
+            header("Location: /");
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
@@ -81,7 +84,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <form method="post" class="card mt-5 rounded-lg p-5 lg:p-7">
                     <label class="relative flex">
-                        <input autocomplete="off"
+                        <input autocomplete="off"  max="255" maxlength="255"
+                            class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
+                            placeholder="Nama" type="text" required name="nama">
+                        <span
+                            class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="size-5 transition-colors duration-200"
+                                fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </span>
+                    </label>
+                    <label class="relative mt-4 flex">
+                        <input autocomplete="off"  max="255" maxlength="255"
                             class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
                             placeholder="Username" type="text" required name="username">
                         <span
@@ -95,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </span>
                     </label>
                     <label class="relative mt-4 flex">
-                        <input autocomplete="off"
+                        <input autocomplete="off" min="8" minlength="8"  max="255" maxlength="255"
                             class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
                             placeholder="Password" type="password" required name="password">
                         <span
@@ -110,6 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </label>
                     <label class="relative mt-4 flex">
                         <input autocomplete="off"
+                        min="8" minlength="8" max="255" maxlength="255"
                             class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
                             placeholder="Repeat Password" type="password" required name="password_2">
                         <span
