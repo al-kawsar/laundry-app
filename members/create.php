@@ -103,8 +103,7 @@ $title = "Member";
                                     <span class="relative mt-1.5 flex">
                                         <input
                                             class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
-                                            placeholder="(62) 123-456-789-12" type="text" name="tlp"
-                                            x-input-mask="{numericOnly: true, blocks: [0, 2, 3, 3,3,2], delimiters: ['(', ') ', '-']}">
+                                            placeholder="0812345678912" type="number" name="tlp">
                                         <span
                                             class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent">
                                             <i class="fa fa-phone"></i>
@@ -116,13 +115,13 @@ $title = "Member";
                                 <span>Jenis Kelamin</span>
                                 <div class="flex gap-3">
                                     <label class="flex items-center space-x-2">
-                                        <input checked
+                                        <input
                                             class="form-radio mt-1.5 is-basic size-5 rounded-full border-slate-400/70 bg-slate-100 checked:border-slate-500 checked:bg-slate-500 hover:border-slate-500 focus:border-slate-500 dark:border-navy-500 dark:bg-navy-900 dark:checked:border-navy-400 dark:checked:bg-navy-400"
                                             name="jenis_kelamin" value="Laki-Laki" type="radio" />
                                         <p>Laki Laki</p>
                                     </label>
                                     <label class="flex items-center space-x-2">
-                                        <input checked
+                                        <input
                                             class="form-radio mt-1.5 is-basic size-5 rounded-full border-slate-400/70 bg-slate-100 checked:border-slate-500 checked:bg-slate-500 hover:border-slate-500 focus:border-slate-500 dark:border-navy-500 dark:bg-navy-900 dark:checked:border-navy-400 dark:checked:bg-navy-400"
                                             name="jenis_kelamin" value="Perempuan" type="radio" />
                                         <p>Perempuan</p>
