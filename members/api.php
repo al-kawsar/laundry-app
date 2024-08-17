@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $data[] = [
             "id" => $row['id'],
             "nama" => $row['nama'],
-            "alamat" => $row['alamat'],
+            "alamat" => strlen($row['alamat']) < 15 ? $row['alamat'] : substr($row['alamat'], 0, 15) . '...',
             "jenis_kelamin" => $row['jenis_kelamin'],
             "tlp" => $row['tlp'],
         ];
