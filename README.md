@@ -1,1 +1,1 @@
-Laundry APP
+Laundry App
